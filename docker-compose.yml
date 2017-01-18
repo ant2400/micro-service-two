@@ -1,0 +1,13 @@
+
+service-two:
+  build: .
+  image: ant2400/micro-service-two
+  command: nodemon index.js
+  environment:
+    NODE_ENV: development
+  links:
+    - rabbitmq
+  restart: always
+  volumes:
+    - .:/usr/src/app
+    - /usr/src/app/node_modules
